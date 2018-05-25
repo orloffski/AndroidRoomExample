@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_add:
                 employee = new Employee();
-                employee.id = Integer.parseInt(idEditText.getText().toString());
                 employee.name = nameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.insert(employee);
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_save:
                 employee = new Employee();
-                employee.id = Integer.parseInt(idEditText.getText().toString());
                 employee.name = nameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.update(employee);
@@ -94,13 +92,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 PrintSQLiteData.printUpdated(employee);
                 break;
             case R.id.btn_cancel:
-                idEditText.setText("");
                 nameEditText.setText("");
                 salaryEditText.setText("");
                 break;
             case R.id.btn_delete:
                 employee = new Employee();
-                employee.id = Integer.parseInt(idEditText.getText().toString());
                 employee.name = nameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.delete(employee);
