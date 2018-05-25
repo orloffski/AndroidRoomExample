@@ -15,6 +15,6 @@ public class Employee {
 
     public int salary;
 
-    @Embedded
+    @Embedded(prefix = "adress")
     public Adress adress;
 }
