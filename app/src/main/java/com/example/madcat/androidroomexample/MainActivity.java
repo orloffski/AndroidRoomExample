@@ -1,5 +1,8 @@
 package com.example.madcat.androidroomexample;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EmployeeDao employeeDao;
     Employee employee;
+
+    LiveData<List<Employee>> employeesLiveData;
 
     Button listButton;
     Button addButton;
@@ -53,6 +58,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listButton.setOnClickListener(this);
         addButton.setOnClickListener(this);
         getButton.setOnClickListener(this);
+
+        employeesLiveData = App.getInstance().getDatabase().employeeDao().getAllLveData();
+
+        employeesLiveData.observe(this, new Observer<List<Employee>>() {
+            @Override
+            public void onChanged(@Nullable List<Employee> employees) {
+                PrintSQLiteData.printEmployee(employees);
+            }
+        });
     }
 
     @Override

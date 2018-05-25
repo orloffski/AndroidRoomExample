@@ -1,5 +1,6 @@
 package com.example.madcat.androidroomexample.database.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -22,6 +23,9 @@ public interface EmployeeDao {
 
     @Query("SELECT * FROM employee")
     Cursor getAllInCursor();
+
+    @Query("SELECT * FROM employee")
+    LiveData<List<Employee>> getAllLiveData();
 
     @Query("SELECT * FROM employee WHERE id = :id")
     Employee getById(long id);
