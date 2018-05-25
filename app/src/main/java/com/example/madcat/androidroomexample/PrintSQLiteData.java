@@ -1,10 +1,21 @@
 package com.example.madcat.androidroomexample;
 
 import com.example.madcat.androidroomexample.database.entities.Employee;
+import com.example.madcat.androidroomexample.database.entities.Names;
 
 import java.util.List;
 
 public class PrintSQLiteData {
+
+    public static void printEmployeeNames(Names names){
+        System.out.println("first name: " + names.firstName + " last name: " + names.lastName);
+    }
+
+    public static void printEmployeesNames(List<Names> names){
+        System.out.println("Names list");
+        for(Names name : names)
+            printEmployeeNames(name);
+    }
 
     public static void printEmployee(Employee employee){
         System.out.println(

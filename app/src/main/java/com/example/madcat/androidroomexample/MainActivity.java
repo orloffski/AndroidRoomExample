@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.madcat.androidroomexample.database.dao.EmployeeDao;
 import com.example.madcat.androidroomexample.database.entities.Employee;
+import com.example.madcat.androidroomexample.database.entities.Names;
 import com.idescout.sql.SqlScoutServer;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LiveData<List<Employee>> employeesLiveData;
 
     Button listButton;
+    Button listNamesButton;
     Button addButton;
     Button saveButton;
     Button cancelButton;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         listButton = findViewById(R.id.btn_list);
+        listNamesButton = findViewById(R.id.btn_names);
         addButton = findViewById(R.id.btn_add);
         saveButton = findViewById(R.id.btn_save);
         cancelButton = findViewById(R.id.btn_cancel);
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cancelButton.setOnClickListener(this);
         deleteButton.setOnClickListener(this);
         listButton.setOnClickListener(this);
+        listNamesButton.setOnClickListener(this);
         addButton.setOnClickListener(this);
         getButton.setOnClickListener(this);
 
@@ -81,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 List<Employee> employeeList = employeeDao.getAll();
 
                 PrintSQLiteData.printEmployee(employeeList);
+                break;
+            case R.id.btn_names:
+                List<Names> names = employeeDao.getNames();
+
+                PrintSQLiteData.printEmployeesNames(names);
                 break;
             case R.id.btn_add:
                 employee = new Employee();
