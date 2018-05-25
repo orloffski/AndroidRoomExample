@@ -5,6 +5,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
+import android.database.Cursor;
 
 import com.example.madcat.androidroomexample.database.entities.Employee;
 
@@ -15,6 +16,12 @@ public interface EmployeeDao {
 
     @Query("SELECT * FROM employee")
     List<Employee> getAll();
+
+    @Query("SELECT * FROM employee")
+    Employee[] getAllInArray();
+
+    @Query("SELECT * FROM employee")
+    Cursor getAllInCursor();
 
     @Query("SELECT * FROM employee WHERE id = :id")
     Employee getById(long id);
