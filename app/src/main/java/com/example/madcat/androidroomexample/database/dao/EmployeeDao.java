@@ -25,10 +25,22 @@ public interface EmployeeDao {
     Cursor getAllInCursor();
 
     @Query("SELECT * FROM employee")
-    LiveData<List<Employee>> getAllLiveData();
+    LiveData<List<Employee>> getAllLveData();
 
     @Query("SELECT * FROM employee WHERE id = :id")
     Employee getById(long id);
+
+    @Query("SELECT * FROM employee WHERE salary > :minSalary")
+    Employee getAllWithSalaryMoreThan(int minSalary);
+
+    @Query("SELECT * FROM employee WHERE salary BETWEEN :minSalary AND :maxSalary")
+    Employee getAllWithSalaryBetween(int minSalary, int maxSalary);
+
+    @Query("SELECT * FROM employee WHERE name LIKE :search")
+    Employee getAllWithNameLike(String search);
+
+    @Query("SELECT * FROM employee WHERE id IN (:idList)")
+    Employee getByIdList(List<Long> idList);
 
     @Insert
     void insert(Employee employee);
