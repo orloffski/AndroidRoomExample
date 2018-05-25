@@ -1,5 +1,6 @@
 package com.example.madcat.androidroomexample.database.entities;
 
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
@@ -13,4 +14,7 @@ public class Employee {
     public String name;
 
     public int salary;
+
+    @Embedded
+    public Adress adress;
 }
