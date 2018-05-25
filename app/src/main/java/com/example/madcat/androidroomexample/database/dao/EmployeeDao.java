@@ -36,7 +36,7 @@ public interface EmployeeDao {
     @Query("SELECT * FROM employee WHERE salary BETWEEN :minSalary AND :maxSalary")
     Employee getAllWithSalaryBetween(int minSalary, int maxSalary);
 
-    @Query("SELECT * FROM employee WHERE name LIKE :search")
+    @Query("SELECT * FROM employee WHERE first_name LIKE :search OR last_name LIKE :search")
     Employee getAllWithNameLike(String search);
 
     @Query("SELECT * FROM employee WHERE id IN (:idList)")

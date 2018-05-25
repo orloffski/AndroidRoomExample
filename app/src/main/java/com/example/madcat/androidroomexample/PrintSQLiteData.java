@@ -9,7 +9,8 @@ public class PrintSQLiteData {
     public static void printEmployee(Employee employee){
         System.out.println(
                 "Employee id: " + employee.id +
-                        " name: " + employee.name +
+                        " first_name: " + employee.firstName +
+                        " last_name: " + employee.lastName +
                         " salary: " + employee.salary);
     }
 

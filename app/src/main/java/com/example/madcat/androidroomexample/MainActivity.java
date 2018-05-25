@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button getButton;
 
     TextView idEditText;
-    TextView nameEditText;
+    TextView firstNameEditText;
+    TextView lastNameEditText;
     TextView salaryEditText;
     TextView getEditText;
 
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getButton = findViewById(R.id.btn_get);
 
         idEditText = findViewById(R.id.idEditText);
-        nameEditText = findViewById(R.id.nameEditText);
+        firstNameEditText = findViewById(R.id.firstNameEditText);
+        lastNameEditText = findViewById(R.id.lastNameEditText);
         salaryEditText = findViewById(R.id.salaryEditText);
         getEditText = findViewById(R.id.getEditText);
 
@@ -82,7 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_add:
                 employee = new Employee();
-                employee.name = nameEditText.getText().toString();
+                employee.firstName = firstNameEditText.getText().toString();
+                employee.lastName = lastNameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.insert(employee);
 
@@ -93,25 +96,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(employee != null) {
                     idEditText.setText(String.valueOf(employee.id));
-                    nameEditText.setText(employee.name);
+                    firstNameEditText.setText(employee.firstName);
+                    lastNameEditText.setText(employee.lastName);
                     salaryEditText.setText(String.valueOf(employee.salary));
                 }
                 break;
             case R.id.btn_save:
                 employee = new Employee();
-                employee.name = nameEditText.getText().toString();
+                employee.firstName = firstNameEditText.getText().toString();
+                employee.lastName = lastNameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.update(employee);
 
                 PrintSQLiteData.printUpdated(employee);
                 break;
             case R.id.btn_cancel:
-                nameEditText.setText("");
+                firstNameEditText.setText("");
+                lastNameEditText.setText("");
                 salaryEditText.setText("");
                 break;
             case R.id.btn_delete:
                 employee = new Employee();
-                employee.name = nameEditText.getText().toString();
+                employee.firstName = firstNameEditText.getText().toString();
+                employee.lastName = lastNameEditText.getText().toString();
                 employee.salary = Integer.parseInt(salaryEditText.getText().toString());
                 employeeDao.delete(employee);
 
