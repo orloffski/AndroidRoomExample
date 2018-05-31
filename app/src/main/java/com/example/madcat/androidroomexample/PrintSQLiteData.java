@@ -63,9 +63,9 @@ public class PrintSQLiteData {
 
     public static void printEmployeeFullData(EmployeesWithCars employeesWithCars){
         System.out.println(
-                "Employee : " + employeesWithCars.id +
-                        " " + employeesWithCars.firstName +
-                        " " + employeesWithCars.lastName);
+                "Employee : " + employeesWithCars.employee.id +
+                        " " + employeesWithCars.employee.firstName +
+                        " " + employeesWithCars.employee.lastName);
         if(employeesWithCars.cars != null && employeesWithCars.cars.size() != 0){
             for(Car car : employeesWithCars.cars)
                 printCar(car);

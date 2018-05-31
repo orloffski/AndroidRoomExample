@@ -47,7 +47,7 @@ public interface EmployeeDao {
     @Query("SELECT first_name, last_name FROM employee")
     List<Names> getNames();
 
-    @Query("SELECT id, first_name, last_name from employee")
+    @Query("SELECT * from employee")
     List<EmployeesWithCars> getEmployeesWithCars();
 
     @Insert
