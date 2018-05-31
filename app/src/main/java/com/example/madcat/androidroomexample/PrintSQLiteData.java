@@ -3,6 +3,7 @@ package com.example.madcat.androidroomexample;
 import com.example.madcat.androidroomexample.database.entities.Car;
 import com.example.madcat.androidroomexample.database.entities.CarsForEmployees;
 import com.example.madcat.androidroomexample.database.entities.Employee;
+import com.example.madcat.androidroomexample.database.entities.EmployeesWithCars;
 import com.example.madcat.androidroomexample.database.entities.Names;
 
 import java.util.List;
@@ -58,6 +59,25 @@ public class PrintSQLiteData {
         System.out.println("Cars list");
         for(CarsForEmployees carsForEmployeesSingle : carsForEmployees)
             printCarFullData(carsForEmployeesSingle);
+    }
+
+    public static void printEmployeeFullData(EmployeesWithCars employeesWithCars){
+        System.out.println(
+                "Employee : " + employeesWithCars.id +
+                        " " + employeesWithCars.firstName +
+                        " " + employeesWithCars.lastName);
+        if(employeesWithCars.cars != null && employeesWithCars.cars.size() != 0){
+            for(Car car : employeesWithCars.cars)
+                printCar(car);
+        }else{
+            System.out.println("employee don't have car");
+        }
+    }
+
+    public static void printEmployeeFullData(List<EmployeesWithCars> employeesWithCars){
+        System.out.println("Employees list");
+        for(EmployeesWithCars employeesWithCarsSingle : employeesWithCars)
+            printEmployeeFullData(employeesWithCarsSingle);
     }
 
     public static void printUpdated(Employee employee){

@@ -9,6 +9,7 @@ import android.arch.persistence.room.Update;
 import android.database.Cursor;
 
 import com.example.madcat.androidroomexample.database.entities.Employee;
+import com.example.madcat.androidroomexample.database.entities.EmployeesWithCars;
 import com.example.madcat.androidroomexample.database.entities.Names;
 
 import java.util.List;
@@ -45,6 +46,9 @@ public interface EmployeeDao {
 
     @Query("SELECT first_name, last_name FROM employee")
     List<Names> getNames();
+
+    @Query("SELECT id, first_name, last_name from employee")
+    List<EmployeesWithCars> getEmployeesWithCars();
 
     @Insert
     void insert(Employee employee);

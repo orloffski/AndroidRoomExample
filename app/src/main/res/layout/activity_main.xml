@@ -57,6 +57,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Вывести сотрудников по машинам" />
+
+        <Button
+            android:id="@+id/btn_full_employee_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Вывести машины по сотрудникам" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
