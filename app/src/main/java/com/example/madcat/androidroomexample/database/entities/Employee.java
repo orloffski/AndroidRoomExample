@@ -22,4 +22,6 @@ public class Employee {
 
     @Embedded(prefix = "adress")
     public Adress adress;
+
+    public long birthday;
 }

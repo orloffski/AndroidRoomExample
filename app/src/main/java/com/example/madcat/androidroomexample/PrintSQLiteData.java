@@ -6,6 +6,7 @@ import com.example.madcat.androidroomexample.database.entities.Employee;
 import com.example.madcat.androidroomexample.database.entities.EmployeesWithCars;
 import com.example.madcat.androidroomexample.database.entities.Names;
 
+import java.util.Date;
 import java.util.List;
 
 public class PrintSQLiteData {
@@ -25,7 +26,8 @@ public class PrintSQLiteData {
                 "Employee id: " + employee.id +
                         " first_name: " + employee.firstName +
                         " last_name: " + employee.lastName +
-                        " salary: " + employee.salary);
+                        " salary: " + employee.salary +
+                        " birthday: " + new Date(employee.birthday));
     }
 
     public static void printEmployee(List<Employee> employee){
