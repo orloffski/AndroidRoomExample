@@ -1,6 +1,7 @@
 package com.example.madcat.androidroomexample;
 
 import com.example.madcat.androidroomexample.database.entities.Car;
+import com.example.madcat.androidroomexample.database.entities.CarsForEmployees;
 import com.example.madcat.androidroomexample.database.entities.Employee;
 import com.example.madcat.androidroomexample.database.entities.Names;
 
@@ -44,6 +45,19 @@ public class PrintSQLiteData {
         System.out.println("Cars list");
         for(Car car : cars)
             printCar(car);
+    }
+
+    public static void printCarFullData(CarsForEmployees carsForEmployees){
+        System.out.println(
+                "Car model: " + carsForEmployees.model +
+                        " employee: " + carsForEmployees.employeeFirstName +
+                        " " + carsForEmployees.employeeLastName);
+    }
+
+    public static void printCarFullData(List<CarsForEmployees> carsForEmployees){
+        System.out.println("Cars list");
+        for(CarsForEmployees carsForEmployeesSingle : carsForEmployees)
+            printCarFullData(carsForEmployeesSingle);
     }
 
     public static void printUpdated(Employee employee){

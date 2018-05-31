@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.example.madcat.androidroomexample.database.entities.Car;
+import com.example.madcat.androidroomexample.database.entities.CarsForEmployees;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public interface CarDao {
 
     @Query("SELECT * FROM car WHERE employee_id = :id")
     List<Car> getByEmployeeId(long id);
+
+    @Query("SELECT car.model, employee.first_name AS employee_first_name, employee.last_name AS employee_last_name " +
+            "FROM car, employee " +
+            "WHERE car.employee_id = employee.id")
+    public List<CarsForEmployees> getCarsForEmployees();
 
     @Insert
     void insert(Car car);

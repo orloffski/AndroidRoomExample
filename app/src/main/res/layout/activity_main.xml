@@ -23,6 +23,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -42,6 +43,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="сотрудники" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/btn_full_cars_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Вывести сотрудников по машинам" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
